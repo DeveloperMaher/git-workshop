@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS Sandbox Testing Page</title>
+    <style>
+        /* CSS RESET & VARIABLES */
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius: 8px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-page: #0f172a;
+                --bg-card: #1e293b;
+                --text-main: #f8fafc;
+                --text-muted: #94a3b8;
+                --border: #334155;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 2rem;
+        }
+
+        /* LAYOUT HOOKS */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px dashed var(--border);
+        }
+
+        h1 { margin-bottom: 0.5rem; }
+        p.subtitle { color: var(--text-muted); }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* TEST COMPONENTS */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: calc(var(--radius) - 2px);
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn:hover { background-color: var(--primary-hover); }
+        .btn-alt { background-color: var(--text-muted); }
+        .btn-alt:hover { opacity: 0.9; }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-main);
+            border-radius: calc(var(--radius) - 2px);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🔨 Environment Test Environment</h1>
+            <p class="subtitle">If this page looks styled with a clean dark/light UI, your CSS engine is working perfectly.</p>
+        </header>
+
+        <main class="test-grid">
+            <!-- Test Element: Component & Interactivity -->
+            <section class="card">
+                <h2>Buttons & States</h2>
+                <p style="margin-bottom: 1rem; color: var(--text-muted);">Verify hover animations and border-radius scaling.</p>
+                <button class="btn" onclick="alert('CSS & JS interactive!')">Primary CTA</button>
+                <button class="btn btn-alt">Secondary</button>
+            </section>
+
+            <!-- Test Element: Typography & Forms -->
+            <section class="card">
+                <h2>Form Controls & Flex</h2>
+                <div class="input-group">
+                    <label for="test-input">Text Input Field</label>
+                    <input type="text" id="test-input" placeholder="Type inside me...">
+                </div>
+                <p style="font-size: 0.75rem; color: var(--text-muted);">Supports system auto dark-mode configuration.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Static Test Page • DOM & CSS OM Verification Completed</p>
+        </footer>
+    </div>
+
+</body>
+</html>
